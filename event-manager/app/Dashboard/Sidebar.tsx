@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import { Modal } from "antd";
 
-
 export default function Sidebar() {
-  const [changeTheme, setChangeTheme] = useState('light');
+  const [changeTheme, setChangeTheme] = useState("light");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -20,15 +19,15 @@ export default function Sidebar() {
     setIsModalOpen(false);
   };
   useEffect(() => {
-    if (changeTheme === 'dark') {
-      document.body.classList.add('dark');
+    if (changeTheme === "dark") {
+      document.body.classList.add("dark");
     } else {
-        document.body.classList.remove('dark');
+      document.body.classList.remove("dark");
     }
   }, [changeTheme]);
 
   const handleChnageTheme = () => {
-    setChangeTheme(changeTheme === 'light' ? 'dark' : 'light');
+    setChangeTheme(changeTheme === "light" ? "dark" : "light");
   };
 
   return (
@@ -46,14 +45,22 @@ export default function Sidebar() {
         <p className="border rounded-lg w-40 text-center mt-10 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer">
           Events
         </p>
-        <p  onClick={showModal} className="border rounded-lg w-40 text-center mt-10 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer">
+        <p
+          onClick={showModal}
+          className="border rounded-lg w-40 text-center mt-10 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer"
+        >
           Settings
         </p>
-        <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
+        <Modal
+          title="Basic Modal"
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
       </div>
       <div
         className="flex justify-center items-center mt-32 hover:cursor-pointer hover:text-lg ease-linear duration-200 "
