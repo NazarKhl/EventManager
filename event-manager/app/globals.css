@@ -3,18 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 :root {
-  --background: #ffffff;
+  --background: #eeebeb;
   --foreground: #171717;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background);
   font-family: "Space Mono", serif;
-  font-weight: 500;
-  font-style: normal;
 }
 
-body.dark {
-  background-color: var(--background-dark);
-}
+/* body.dark {
+  background-color: rgb(0, 0, 0);
+} */
