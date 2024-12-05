@@ -1,11 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Modal } from "antd";
+import React, { useEffect, useState } from "react";
+import { Modal, Input } from "antd";
 
 export default function Sidebar() {
-  const [changeTheme, setChangeTheme] = useState("light");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [changeTheme, setChangeTheme] = useState<string>("light");
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(true);
+  const [userName, setUserName] = useState<string>(
+    localStorage.getItem("userName") || ""
+  );
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -13,6 +16,7 @@ export default function Sidebar() {
 
   const handleOk = () => {
     setIsModalOpen(false);
+    window.location.reload();
   };
 
   const handleCancel = () => {
@@ -29,6 +33,12 @@ export default function Sidebar() {
   const handleChnageTheme = () => {
     setChangeTheme(changeTheme === "light" ? "dark" : "light");
   };
+
+  const handleNameChenger = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const newName = e.target.value;
+    setUserName(newName);
+    localStorage.setItem('userName', newName);
+  }
 
   return (
     <div className="border w-56 shadow-xl">
@@ -52,14 +62,12 @@ export default function Sidebar() {
           Settings
         </p>
         <Modal
-          title="Basic Modal"
           open={isModalOpen}
           onOk={handleOk}
           onCancel={handleCancel}
         >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          <p className="text-lg mb-4"><span className="font-medium">Hi, </span>{userName}</p>
+          <Input onChange={handleNameChenger} placeholder="Change Name"/>
         </Modal>
       </div>
       <div
