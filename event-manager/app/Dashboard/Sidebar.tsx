@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Modal, Input, Button, message, Space } from "antd";
+import { setTimeout } from "timers";
 
 export default function Sidebar() {
   const [changeTheme, setChangeTheme] = useState<string>("light");
@@ -13,23 +14,28 @@ export default function Sidebar() {
 
   const success = () => {
     messageApi.open({
-      type: "success",
-      content: "This is a success message",
+      type: "warning",
+      content: "Data was saved",
     });
   };
+;
 
   const showModal = () => {
     setIsModalOpen(true);
   };
 
   const handleOk = () => {
-    setIsModalOpen(false);
-    window.location.reload();
+    success();
+    setTimeout(() => {
+      setIsModalOpen(false);
+      window.location.reload();
+    }, 500);
   };
 
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
   useEffect(() => {
     if (changeTheme === "dark") {
       document.body.classList.add("dark");
@@ -52,10 +58,10 @@ export default function Sidebar() {
     <>
       {contextHolder}
       <div className="border w-56 shadow-xl">
-        <p className="text-2xl flex justify-center mt-10">
+        <p className="text-2xl flex justify-center mt-10 ">
           <span className="font-extrabold text-blue-700">Event</span> Hub
         </p>
-        <div className="flex items-center justify-center flex-col space-y-16">
+        <div className="flex items-center justify-center flex-col space-y-16 font-bold">
           <p className="border rounded-lg w-40 text-center mt-32 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer">
             Dashboard
           </p>
@@ -71,7 +77,11 @@ export default function Sidebar() {
           >
             Settings
           </p>
-          <Modal open={isModalOpen} onOk={handleOk} onClick={success} onCancel={handleCancel}>
+          <Modal
+            open={isModalOpen}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
             <p className="text-lg mb-4">
               <span className="font-medium">Hi, </span>
               {userName}
@@ -80,7 +90,7 @@ export default function Sidebar() {
           </Modal>
         </div>
         <div
-          className="flex justify-center items-center mt-32 hover:cursor-pointer hover:text-lg ease-linear duration-200 "
+          className="flex justify-center items-center mt-32 hover:cursor-pointer hover:text-lg ease-linear duration-200 font-bold"
           onClick={handleChnageTheme}
         >
           {changeTheme === "light" ? "Dark Theme" : "Light Theme"}
