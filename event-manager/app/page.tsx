@@ -1,3 +1,4 @@
+import OverallProgres from "./Dashboard/OverallProgres";
 import Sidebar from "./Dashboard/Sidebar";
 import TopPanel from "./Dashboard/TopPanel";
 export default function Home() {
@@ -5,6 +6,7 @@ export default function Home() {
     <div className="poppins flex w-full h-screen">
       <Sidebar/>
       <TopPanel/>
+      <OverallProgres/>
     </div>
   );
 }
