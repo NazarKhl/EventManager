@@ -1,5 +1,6 @@
 import OverallProgres from "./Dashboard/OverallProgres";
 import Sidebar from "./Dashboard/Sidebar";
+import StatisticData from "./Dashboard/StatisticData";
 import TopPanel from "./Dashboard/TopPanel";
 export default function Home() {
   return (
@@ -7,6 +8,7 @@ export default function Home() {
       <Sidebar/>
       <TopPanel/>
       <OverallProgres/>
+      <StatisticData/>
     </div>
   );
 }

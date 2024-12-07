@@ -13,8 +13,9 @@ type Task = {
 export default function TaskManager() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskName, setNewTaskName] = useState<string>("");
-  const [newTaskDate, setNewTaskDate] = useState<string | undefined>(undefined);
+  const [newTaskDate, setNewTaskDate] = useState<string | undefined>();
   const [messageApi, contextHolder] = message.useMessage();
+  // const []
 
   useEffect(() => {
     const storedTasks = localStorage.getItem("tasks");
@@ -54,29 +55,43 @@ export default function TaskManager() {
     messageApi.success("Task completed!");
   };
 
+  const handleDeleteTask = (id: number) => {
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    messageApi.success("Task deleted");
+  };
+
+  const handleUncompleteTask = (id: number) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === id ? { ...task, isCompleted: false } : task
+      )
+    );
+    messageApi.success("Task Uncompleted!");
+  };
+
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
   const progress =
-    tasks.length > 0
-      ? Math.round((completedTasks / tasks.length) * 100)
-      : 100;
+    tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 100;
 
   return (
     <>
       {contextHolder}
-      <div className="absolute right-0 top-28 w-1/3 border shadow-xl h-96 overflow-auto">
-        <p className="font-bold flex justify-center mt-8 text-xl">
+      <div className="absolute right-0 z-10 w-1/3 border shadow-xl h-full overflow-auto">
+        <p className="font-bold flex justify-center mt-9 text-2xl">
           Event Manager
         </p>
-        <div className="flex justify-center mt-5 space-x-2 flex-col">
+        <div className="flex justify-center mt-12 space-x-2">
           <Input
             placeholder="Task Name"
             value={newTaskName}
-            onChange={(e:React.ChangeEvent<HTMLInputElement>) => setNewTaskName(e.target.value)}
-            className="ml-2 w-11/12"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setNewTaskName(e.target.value)
+            }
+            className="w-2/3"
           />
           <DatePicker
             onChange={(date, dateString) => setNewTaskDate(dateString)}
-            className="mt-3 w-11/12 "
+            className=" w-1/4 "
           />
         </div>
         <div className="flex justify-center mt-5">
@@ -96,13 +111,28 @@ export default function TaskManager() {
               <List.Item
                 actions={[
                   !task.isCompleted && (
-                    <Button
-                      type="primary"
-                      size="small"
-                      onClick={() => handleCompleteTask(task.id)}
-                    >
-                      Complete
-                    </Button>
+                    <>
+                      <Button
+                        type="primary"
+                        size="small"
+                        className="-ml-10"
+                        onClick={() => handleCompleteTask(task.id)}
+                      >
+                        Complete
+                      </Button>
+                    </>
+                  ),
+                  task.isCompleted && (
+                    <>
+                      <Button
+                        className="-ml-14"
+                        type="primary"
+                        size="small"
+                        onClick={() => handleUncompleteTask(task.id)}
+                      >
+                        Uncomplete
+                      </Button>
+                    </>
                   ),
                 ]}
               >
@@ -120,6 +150,15 @@ export default function TaskManager() {
                   }
                   description={task.date ? `Due: ${task.date}` : "No deadline"}
                 />
+                <Button
+                  className="ml-1"
+                  type="primary"
+                  size="small"
+                  danger
+                  onClick={() => handleDeleteTask(task.id)}
+                >
+                  Delete
+                </Button>
               </List.Item>
             )}
           />

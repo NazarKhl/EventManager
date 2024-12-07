@@ -16,3 +16,7 @@ body {
 .ant-btn {
   font-family: "Space Mono", serif !important;
 }
+
+::-webkit-scrollbar{
+  width: 10px;
+}
