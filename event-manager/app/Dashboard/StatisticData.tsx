@@ -8,7 +8,7 @@ export default function StatisticData() {
 
   useEffect(() => {
     const total = localStorage.getItem("progress");
-    const completed = localStorage.getItem("completedTasks");
+    const completed = localStorage.getItem("completedTask");
 
     setTotalTasks(total ? parseInt(total, 10) : 0);
     setTasksCompleted(completed ? parseInt(completed, 10) : 0);

@@ -21,6 +21,10 @@ export default function TaskManager() {
     Number(localStorage.getItem("progress")) || 0
   );
 
+  const [completedTask, setCompletedTask] = useState<number>(
+    Number(localStorage.getItem("completedTask")) || 0
+  );
+
   useEffect(() => {
     const storedTasks = localStorage.getItem("tasks");
     if (storedTasks) {
@@ -35,6 +39,10 @@ export default function TaskManager() {
   useEffect(() => {
     localStorage.setItem("progress", totalTask.toString());
   }, [totalTask]);
+
+  useEffect(() => {
+    localStorage.setItem("completedTask", totalTask.toString());
+  }, [completedTask]);
 
   const handleAddTask = () => {
     if (!newTaskName.trim()) {
@@ -60,13 +68,15 @@ export default function TaskManager() {
       prevTasks.map((task) =>
         task.id === id ? { ...task, isCompleted: true } : task
       )
-    );
-    messageApi.success("Task completed!");
-  };
+      );
+      messageApi.success("Task completed!");
+    };
+    setCompletedTask((prev) => prev + 1);
 
   const handleDeleteTask = (id: number) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
     messageApi.success("Task deleted!");
+    setTotalTask((prev) => prev - 1); 
   };
 
   const handleUncompleteTask = (id: number) => {
