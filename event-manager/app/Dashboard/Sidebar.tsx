@@ -62,7 +62,7 @@ export default function Sidebar() {
           <span className="font-extrabold text-blue-700">Event</span> Hub
         </p>
         <div className="flex items-center justify-center flex-col space-y-16 font-bold">
-          <p className="border rounded-lg w-40 text-center mt-32 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer">
+          <p className="border bg-blue-600 rounded-lg text-white w-40 text-center mt-32 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer">
             Dashboard
           </p>
           <p className="border rounded-lg w-40 text-center mt-10 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer">

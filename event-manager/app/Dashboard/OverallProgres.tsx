@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Input, Button, Progress, List, DatePicker, message } from "antd";
+import dayjs from "dayjs";
 
 type Task = {
   id: number;
@@ -15,7 +16,10 @@ export default function TaskManager() {
   const [newTaskName, setNewTaskName] = useState<string>("");
   const [newTaskDate, setNewTaskDate] = useState<string | undefined>();
   const [messageApi, contextHolder] = message.useMessage();
-  // const []
+
+  const [totalTask, setTotalTask] = useState<number>(
+    Number(localStorage.getItem("progress")) || 0
+  );
 
   useEffect(() => {
     const storedTasks = localStorage.getItem("tasks");
@@ -27,6 +31,10 @@ export default function TaskManager() {
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem("progress", totalTask.toString());
+  }, [totalTask]);
 
   const handleAddTask = () => {
     if (!newTaskName.trim()) {
@@ -42,6 +50,7 @@ export default function TaskManager() {
     };
 
     setTasks((prevTasks) => [...prevTasks, newTask]);
+    setTotalTask((prev) => prev + 1); // Increment total tasks
     setNewTaskName("");
     setNewTaskDate(undefined);
   };
@@ -57,7 +66,7 @@ export default function TaskManager() {
 
   const handleDeleteTask = (id: number) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
-    messageApi.success("Task deleted");
+    messageApi.success("Task deleted!");
   };
 
   const handleUncompleteTask = (id: number) => {
@@ -66,20 +75,18 @@ export default function TaskManager() {
         task.id === id ? { ...task, isCompleted: false } : task
       )
     );
-    messageApi.success("Task Uncompleted!");
+    messageApi.success("Task marked as incomplete!");
   };
 
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
   const progress =
-    tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 100;
+    tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 0;
 
   return (
     <>
       {contextHolder}
       <div className="absolute right-0 z-10 w-1/3 border shadow-xl h-full overflow-auto">
-        <p className="font-bold flex justify-center mt-9 text-2xl">
-          Event Manager
-        </p>
+        <p className="font-bold flex justify-center mt-9 text-2xl">Event Manager</p>
         <div className="flex justify-center mt-12 space-x-2">
           <Input
             placeholder="Task Name"
@@ -91,7 +98,7 @@ export default function TaskManager() {
           />
           <DatePicker
             onChange={(date, dateString) => setNewTaskDate(dateString)}
-            className=" w-1/4 "
+            className="w-1/4"
           />
         </div>
         <div className="flex justify-center mt-5">
@@ -111,28 +118,22 @@ export default function TaskManager() {
               <List.Item
                 actions={[
                   !task.isCompleted && (
-                    <>
-                      <Button
-                        type="primary"
-                        size="small"
-                        className="-ml-10"
-                        onClick={() => handleCompleteTask(task.id)}
-                      >
-                        Complete
-                      </Button>
-                    </>
+                    <Button
+                      type="primary"
+                      size="small"
+                      onClick={() => handleCompleteTask(task.id)}
+                    >
+                      Complete
+                    </Button>
                   ),
                   task.isCompleted && (
-                    <>
-                      <Button
-                        className="-ml-14"
-                        type="primary"
-                        size="small"
-                        onClick={() => handleUncompleteTask(task.id)}
-                      >
-                        Uncomplete
-                      </Button>
-                    </>
+                    <Button
+                      type="primary"
+                      size="small"
+                      onClick={() => handleUncompleteTask(task.id)}
+                    >
+                      Uncomplete
+                    </Button>
                   ),
                 ]}
               >
@@ -148,10 +149,13 @@ export default function TaskManager() {
                       {task.name}
                     </span>
                   }
-                  description={task.date ? `Due: ${task.date}` : "No deadline"}
+                  description={
+                    task.date
+                      ? `Due: ${dayjs(task.date).format("MMM DD, YYYY")}`
+                      : "No deadline"
+                  }
                 />
                 <Button
-                  className="ml-1"
                   type="primary"
                   size="small"
                   danger
