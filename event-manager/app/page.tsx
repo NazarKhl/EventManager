@@ -10,7 +10,6 @@ export default function Home() {
       <TopPanel />
       <OverallProgres />
       <StatisticData />
-      {/* <ChartData /> */}
     </div>
   );
 }

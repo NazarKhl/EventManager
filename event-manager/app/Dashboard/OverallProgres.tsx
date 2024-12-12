@@ -41,7 +41,7 @@ export default function TaskManager() {
   }, [totalTask]);
 
   useEffect(() => {
-    localStorage.setItem("completedTask", totalTask.toString());
+    localStorage.setItem("completedTask", completedTask.toString());
   }, [completedTask]);
 
   const handleAddTask = () => {
@@ -58,9 +58,10 @@ export default function TaskManager() {
     };
 
     setTasks((prevTasks) => [...prevTasks, newTask]);
-    setTotalTask((prev) => prev + 1); // Increment total tasks
+    setTotalTask((prev) => prev + 1);
     setNewTaskName("");
     setNewTaskDate(undefined);
+    window.location.reload();
   };
 
   const handleCompleteTask = (id: number) => {
@@ -68,15 +69,18 @@ export default function TaskManager() {
       prevTasks.map((task) =>
         task.id === id ? { ...task, isCompleted: true } : task
       )
-      );
-      messageApi.success("Task completed!");
-    };
+    );
+    messageApi.success("Task completed!");
     setCompletedTask((prev) => prev + 1);
+    window.location.reload();
+  };
 
   const handleDeleteTask = (id: number) => {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
     messageApi.success("Task deleted!");
-    setTotalTask((prev) => prev - 1); 
+    setTotalTask((prev) => prev - 1);
+    setCompletedTask((prev) => prev - 1);
+    window.location.reload();
   };
 
   const handleUncompleteTask = (id: number) => {
@@ -85,6 +89,8 @@ export default function TaskManager() {
         task.id === id ? { ...task, isCompleted: false } : task
       )
     );
+    setCompletedTask((prev) => prev - 1);
+    window.location.reload();
     messageApi.success("Task marked as incomplete!");
   };
 
@@ -107,7 +113,7 @@ export default function TaskManager() {
             className="w-2/3"
           />
           <DatePicker
-            onChange={(date, dateString) => setNewTaskDate(dateString)}
+            onChange={(date, dateString) => setNewTaskDate(dateString.toString())}
             className="w-1/4"
           />
         </div>
