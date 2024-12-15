@@ -57,7 +57,7 @@ export default function Sidebar() {
   return (
     <>
       {contextHolder}
-      <div className="border w-56 shadow-xl">
+      <div className="border w-96 shadow-xl">
         <p className="text-2xl flex justify-center mt-10 ">
           <span className="font-extrabold text-blue-700">Event</span> Hub
         </p>

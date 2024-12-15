@@ -30,7 +30,7 @@ export default function StatisticData() {
 
   return (
     <>
-      <div className="absolute bg-blue-600 left-[280px] top-36 text-white w-1/5 border rounded-lg shadow-xl h-1/5">
+      <div className="fixed bg-blue-600 left-72 top-36 text-white w-1/5  border rounded-lg shadow-xl h-1/5 ">
         <p className="flex justify-center mt-7 text-xl font-bold">
           Total Tasks
         </p>
@@ -38,9 +38,10 @@ export default function StatisticData() {
           {totalTasks}
         </p>
       </div>
-      <div className="absolute bg-blue-600 right-[600px] top-36 w-1/5 border rounded-lg text-white shadow-xl h-1/5">
+
+      <div className="fixed bg-blue-600 right-1/3 top-36  text-white w-1/5 border rounded-lg shadow-xl h-1/5 sm:h-1/6 md:h-1/5 lg:h-1/6 xl:h-1/5">
         <p className="flex justify-center mt-7 text-xl font-bold">
-          Tasks Completed
+          Completed Tasks
         </p>
         <p className="flex justify-center mt-2 font-bold text-2xl">
           {tasksCompleted}

@@ -79,7 +79,10 @@ export default function TaskManager() {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
     messageApi.success("Task deleted!");
     setTotalTask((prev) => prev - 1);
-    setCompletedTask((prev) => prev - 1);
+    const deletedTask = tasks.find((task) => task.id === id);
+    if (deletedTask && deletedTask.isCompleted) {
+      setCompletedTask((prev) => prev - 1);
+    }
     window.location.reload();
   };
 
@@ -101,8 +104,10 @@ export default function TaskManager() {
   return (
     <>
       {contextHolder}
-      <div className="absolute right-0 z-10 w-1/3 border shadow-xl h-full overflow-auto">
-        <p className="font-bold flex justify-center mt-9 text-2xl">Event Manager</p>
+      <div className="relative right-0 z-10 w-1/2 border shadow-xl h-full overflow-auto">
+        <p className="font-bold flex justify-center mt-9 text-2xl">
+          Event Manager
+        </p>
         <div className="flex justify-center mt-12 space-x-2">
           <Input
             placeholder="Task Name"
@@ -113,7 +118,9 @@ export default function TaskManager() {
             className="w-2/3"
           />
           <DatePicker
-            onChange={(date, dateString) => setNewTaskDate(dateString.toString())}
+            onChange={(date, dateString) =>
+              setNewTaskDate(dateString.toString())
+            }
             className="w-1/4"
           />
         </div>
