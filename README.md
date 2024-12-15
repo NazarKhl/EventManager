@@ -13,10 +13,6 @@ Event Manager is a dynamic web application designed to simplify the process of e
   - Location.  
   - Descriptions and categories.  
 
-- **User Invitations and RSVP Tracking**  
-  - Invite attendees via email or direct links.  
-  - Track RSVPs in real time.  
-
 - **Progress Tracking Dashboard**  
   - Visualize event tasks' status using interactive charts and graphs.  
   - Percentage-based progress bars for better event task management.  
@@ -27,7 +23,6 @@ Event Manager is a dynamic web application designed to simplify the process of e
 - **Mobile-Friendly and Responsive Design**  
   - Fully responsive layouts ensuring optimal performance across all screen sizes.  
 
-### Features in Progress  
 - **Interactive Calendar View**  
   - Display events in a weekly/monthly calendar with hover tooltips.  
 
@@ -66,27 +61,6 @@ Event Manager is a dynamic web application designed to simplify the process of e
 
 ---
 
-## Known Bugs and Fixes  
-
-### Bugs in Progress  
-- **fix/1-slider-flickering**  
-  Event slider flickers when transitioning between the last and first elements.  
-
-- **fix/2-calendar-responsiveness**  
-  Calendar component overflows on smaller screens, requiring responsive adjustments.  
-
-- **fix/3-safari-background**  
-  Background alignment issues in Safari browsers on the Contact Page.  
-
-### Completed Fixes  
-- **fix/4-dark-mode-bug**  
-  Fixed TailwindCSS's `dark:` prefix behavior for nested components.  
-
-- **fix/5-progress-bar-calculations**  
-  Corrected percentage values for progress bar when task counts were low.  
-
----
-
 ## Technologies Used  
 
 - **Frontend**:  
@@ -95,46 +69,23 @@ Event Manager is a dynamic web application designed to simplify the process of e
   - **TypeScript**: Ensures type safety and maintainability.  
   - **TailwindCSS**: Utility-first framework for modern, responsive design.  
 
-- **Backend (Optional)**:  
-  - **Node.js/Express**: RESTful APIs for event and user management.  
-  - **Firebase/AWS Lambda**: Serverless backend support for notifications and storage.  
+- **Backend**:  
+  - **Python(Django)**: RESTful APIs for event and user management.  
 
 - **Database**:  
-  - **PostgreSQL/MongoDB**: For storing event and user data.  
+  - **MongoDB**: For storing event and user data.  
 
 - **Visualizations**:  
   - **Chart.js**: Interactive and customizable charts for event progress tracking.  
 
 ---
 
-## To-Do  
-
-1. **Integrate Google Calendar API**  
-   Sync events with Google Calendar for real-time updates.  
-
-2. **Email Notifications**  
-   Add email-based RSVP confirmations and event reminders.  
-
-3. **Enhanced Accessibility Features**  
-   Include ARIA roles and keyboard navigation for better usability.  
-
-4. **File Uploads**  
-   Support file uploads (e.g., images for events) directly from the UI.  
-
-5. **Improve Animations**  
-   Add smooth transitions for page changes, modals, and form submissions.  
-
----
-
 ## Installation  
-
-### Prerequisites  
-- Ensure you have **Node.js** and **npm** or **yarn** installed.  
 
 ### Steps  
 1. Clone the repository:  
    ```bash  
-   git clone https://github.com/your-username/EventManager.git  
+   git clone https://github.com/NazarKhl/EventManager.git  
    cd EventManager  
    ```  
 
