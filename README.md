@@ -1,81 +1,131 @@
-# EventManager
+# Event Manager  
 
-EventManager is a web-based application designed for managing events and tracking progress. Built using Next.js, TypeScript, and styled with Tailwind CSS, this application aims to provide a seamless user experience with a clean and modern interface.
+Event Manager is a dynamic web application designed to simplify the process of event creation, management, and tracking. With features like progress monitoring, user interactions, and seamless customization, this project leverages modern technologies like **React**, **Next.js**, **TypeScript**, and **TailwindCSS** to deliver a responsive and user-friendly experience.  
 
-## Features
+---
 
-- **Dashboard**: Overview of your projects, progress, and activities.
-- **Progress Tracking**: Visual representation of overall progress through a percentage-based progress bar.
-- **Latest Projects**: A section to view and manage your latest events and tasks.
-- **Dark Mode**: Toggle between light and dark themes for a customizable user experience.
-- **Responsive**: The interface is designed to be mobile-friendly and responsive across various devices.
-- **Error Handling**: The application has error handling mechanisms in place, visible in the UI for debugging.
+## Features  
 
-## Tech Stack
+### Core Functionality  
+- **Event Creation and Management**  
+  Effortlessly create, update, and delete events with detailed information like:  
+  - Event name, date, and time.  
+  - Location.  
+  - Descriptions and categories.  
 
-- **Next.js**: React framework for server-side rendering and static site generation.
-- **TypeScript**: Type-safe programming language that builds on JavaScript.
-- **Tailwind CSS**: Utility-first CSS framework for creating modern, responsive designs.
-- **React**: The core JavaScript library for building user interfaces.
-- **State Management**: Local component state or context API for managing application-wide state.
+- **Progress Tracking Dashboard**  
+  - Visualize event tasks' status using interactive charts and graphs.  
+  - Percentage-based progress bars for better event task management.  
 
-## Installation
+- **Dark Mode**  
+  - Toggle a dark or light theme to suit user preferences, powered by TailwindCSS's `dark:` classes.  
 
-To run the application locally, follow these steps:
+- **Mobile-Friendly and Responsive Design**  
+  - Fully responsive layouts ensuring optimal performance across all screen sizes.  
 
-1. Clone the repository:
+- **Interactive Calendar View**  
+  - Display events in a weekly/monthly calendar with hover tooltips.  
 
-```bash
-git clone https://github.com/your-username/EventManager.git
-cd EventManager
-```
+- **Advanced Filtering and Search**  
+  - Filter events by categories, time, or user preferences.  
 
-2. Install dependencies:
+- **Detailed Single Event Page**  
+  - Includes:  
+    - Event image galleries.  
+    - In-depth descriptions.  
+    - Integrated contact form for inquiries.  
 
-```bash
-npm install
-```
+- **User Dashboard**  
+  - Personalized dashboard for managing your hosted events and RSVP details.  
 
-3. Run the development server:
+---
 
-```bash
-npm run dev
-```
+## Technologies Used  
 
-4. Open `http://localhost:3000` in your browser to view the application.
+- **Frontend**:  
+  - **React**: Component-based library for building UI.  
+  - **Next.js**: Framework for server-side rendering and static site generation.  
+  - **TypeScript**: Ensures type safety and maintainability.  
+  - **TailwindCSS**: Utility-first framework for modern, responsive design.  
 
-## Environment Variables
+- **Backend**:  
+  - **Python(Django)**: RESTful APIs for event and user management.  
 
-For certain configurations, make sure to create a `.env.local` file with the following (replace the placeholders with your actual data):
+- **Database**:  
+  - **MongoDB**: For storing event and user data.  
 
-```env
-NEXT_PUBLIC_API_URL=https://your-api-url.com
-```
+- **Visualizations**:  
+  - **Chart.js**: Interactive and customizable charts for event progress tracking.  
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Installation  
 
-- `npm run dev` — Runs the app in development mode.
-- `npm run build` — Builds the app for production.
-- `npm run start` — Starts the app in production mode.
-- `npm run lint` — Lints the code for style issues.
-- `npm run test` — Runs tests for the application.
+### Steps  
+1. Clone the repository:  
+   ```bash  
+   git clone https://github.com/NazarKhl/EventManager.git  
+   cd EventManager  
+   ```  
 
-## Contributing
+2. Install dependencies:  
+   ```bash  
+   npm install  
+   ```  
 
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Open a pull request.
+3. Start the development server:  
+   ```bash  
+   npm run dev  
+   ```  
 
-## License
+4. Open the application in your browser at `http://localhost:3000`.  
 
-This project is licensed under the MIT License.
+---
 
-## Acknowledgements
+## Environment Variables  
 
-- [Next.js](https://nextjs.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [TypeScript](https://www.typescriptlang.org/)
+Create a `.env.local` file in the root directory and add the following:  
+```env  
+NEXT_PUBLIC_API_URL=https://api.example.com  
+NEXT_PUBLIC_ANALYTICS_KEY=your-analytics-key  
+```  
+
+Replace the placeholders with your actual API URL and keys.  
+
+---
+
+## Contributing  
+
+We welcome contributions from the community! Follow these steps to contribute:  
+
+1. Fork the repository.  
+2. Create a new branch:  
+   ```bash  
+   git checkout -b feature-name  
+   ```  
+3. Commit your changes:  
+   ```bash  
+   git commit -m "Add feature: description"  
+   ```  
+4. Push to your branch:  
+   ```bash  
+   git push origin feature-name  
+   ```  
+5. Open a pull request for review.  
+
+---
+
+## License  
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for more details.  
+
+---
+
+## Acknowledgements  
+
+- [React](https://reactjs.org/)  
+- [Next.js](https://nextjs.org/)  
+- [TailwindCSS](https://tailwindcss.com/)  
+- [TypeScript](https://www.typescriptlang.org/)  
+- [Chart.js](https://www.chartjs.org/)  
+
