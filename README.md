@@ -40,27 +40,6 @@ Event Manager is a dynamic web application designed to simplify the process of e
 
 ---
 
-### Completed Features  
-- **feature/1-navbar**  
-  - Sticky and responsive navigation bar for seamless browsing.  
-
-- **feature/2-pagination**  
-  - Event list pagination for faster browsing through large datasets.  
-
-- **feature/3-event-slider**  
-  - Highlight featured events with an interactive slider.  
-
-- **feature/4-contact-form**  
-  - Feedback collection through a robust and validated contact form.  
-
-- **feature/5-progress-chart**  
-  - Event progress tracking through visually appealing charts.  
-
-- **feature/12-dark-mode**  
-  - Easily switch between light and dark modes for a personalized experience.  
-
----
-
 ## Technologies Used  
 
 - **Frontend**:  
