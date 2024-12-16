@@ -1,13 +1,11 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Modal, Input, Button, message } from "antd";
-import ChartData from "./ChartData";
+import React, { useState } from "react";
+import { Modal, Input, message } from "antd";
+import { LoginOutlined } from "@ant-design/icons";
 
 export default function Sidebar() {
-  const [changeTheme, setChangeTheme] = useState<string>("light");
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [isProgressOpen, setIsProgressOpen] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>(
     localStorage.getItem("userName") || ""
   );
@@ -24,10 +22,6 @@ export default function Sidebar() {
     setIsModalOpen(true);
   };
 
-  const showProgress = () => {
-    setIsProgressOpen(true);
-  };
-
   const handleOk = () => {
     success();
     setTimeout(() => {
@@ -35,24 +29,8 @@ export default function Sidebar() {
     }, 500);
   };
 
-  const handleOk2 = () => {
-    setIsProgressOpen(false);
-  };
-
   const handleCancel = () => {
     setIsModalOpen(false);
-  };
-
-  useEffect(() => {
-    if (changeTheme === "dark") {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-  }, [changeTheme]);
-
-  const handleChnageTheme = () => {
-    setChangeTheme(changeTheme === "light" ? "dark" : "light");
   };
 
   const handleNameChenger = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,12 +50,6 @@ export default function Sidebar() {
           <p className="border bg-blue-600 rounded-lg text-white w-40 text-center mt-32 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer">
             Dashboard
           </p>
-          <p
-            className="border rounded-lg w-40 text-center mt-10 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer"
-            onClick={showProgress}
-          >
-            Progress
-          </p>
           <p className="border rounded-lg w-40 text-center mt-10 text-lg hover:border-blue-500 ease-linear duration-200 cursor-pointer">
             Events
           </p>
@@ -94,22 +66,8 @@ export default function Sidebar() {
             </p>
             <Input onChange={handleNameChenger} placeholder="Change Name" />
           </Modal>
-          <Modal
-            open={isProgressOpen}
-            onOk={handleOk2}
-            onCancel={handleOk2}
-          >
-            <div className="max-w-full overflow-x-auto">
-              <ChartData />
-            </div>
-          </Modal>
         </div>
-        <div
-          className="flex justify-center items-center mt-32 hover:cursor-pointer hover:text-lg ease-linear duration-200 font-bold"
-          onClick={handleChnageTheme}
-        >
-          {changeTheme === "light" ? "Dark Theme" : "Light Theme"}
-        </div>
+        <LoginOutlined className="flex justify-center mt-44 text-4xl hover:cursor-pointer"/>
       </div>
     </>
   );
