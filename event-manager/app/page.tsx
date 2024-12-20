@@ -12,7 +12,6 @@ export default function Home() {
       <OverallProgres />
       <StatisticData />
       <ChartData/>
-      {/* <Projects/> */}
     </div>
   );
 }

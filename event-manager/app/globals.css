@@ -2,21 +2,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
-  --background: #eeebeb;
-  --foreground: #171717;
+  --background-light: #312f2f;
+  --foreground-light: #ffffff;
+  --background-dark: #ffffff;  /* Dark background */
+  --foreground-dark: #000000;  /* Light text for dark mode */
 }
 
 body {
-  color: var(--foreground);
-  background-color: var(--background);
+  color: var(--foreground-light);
+  background-color: var(--background-light);
   font-family: "Space Mono", serif;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition between themes */
+}
+
+body.dark {
+  background-color: var(--background-dark);
+  color: var(--foreground-dark);
 }
 
 .ant-btn {
   font-family: "Space Mono", serif !important;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 10px;
 }
