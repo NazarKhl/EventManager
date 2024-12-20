@@ -1,5 +1,6 @@
 import ChartData from "./Dashboard/ChartData";
 import OverallProgres from "./Dashboard/OverallProgres";
+import Projects from "./Dashboard/Projects";
 import Sidebar from "./Dashboard/Sidebar";
 import StatisticData from "./Dashboard/StatisticData";
 import TopPanel from "./Dashboard/TopPanel";
@@ -10,6 +11,8 @@ export default function Home() {
       <TopPanel />
       <OverallProgres />
       <StatisticData />
+      <ChartData/>
+      {/* <Projects/> */}
     </div>
   );
 }

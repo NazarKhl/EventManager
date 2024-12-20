@@ -5,7 +5,9 @@ import { MoonOutlined, SunOutlined } from "@ant-design/icons";
 
 export default function TopPanel() {
   const [userName, setUserName] = useState<string>("");
-  const [changeTheme, setChangeTheme] = useState<string>(localStorage.getItem("theme") || "");
+  const [changeTheme, setChangeTheme] = useState<string>(
+    localStorage.getItem("theme") || ""
+  );
 
   useEffect(() => {
     const getStoredName = localStorage.getItem("userName");
@@ -23,9 +25,8 @@ export default function TopPanel() {
   const handleChangeTheme = () => {
     const newTheme = changeTheme === "light" ? "dark" : "light";
     setChangeTheme(newTheme);
-    localStorage.setItem("theme", newTheme); 
+    localStorage.setItem("theme", newTheme);
   };
-  
 
   return (
     <div className="border shadow-md z-10 flex w-full h-24 items-center">
@@ -45,7 +46,11 @@ export default function TopPanel() {
           className=" justify-center  text-2xl items-center hover:cursor-pointer hover:text-2.4xl duration-500"
           onClick={handleChangeTheme}
         >
-          {changeTheme === "light" ? <MoonOutlined className="pl-7" /> : <SunOutlined className="ml-1" />}
+          {changeTheme === "light" ? (
+            <MoonOutlined className="pl-7 transition duration-1000 ease-in-out" />
+          ) : (
+            <SunOutlined className="ml-1 transition-all duration-1000 ease-in-out" />
+          )}
         </div>
       </div>
     </div>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Input, Button, Progress, List, DatePicker, message } from "antd";
+import { StarOutlined, StarFilled } from "@ant-design/icons";
 import dayjs from "dayjs";
 
 type Task = {
@@ -16,6 +17,10 @@ export default function TaskManager() {
   const [newTaskName, setNewTaskName] = useState<string>("");
   const [newTaskDate, setNewTaskDate] = useState<string | undefined>();
   const [messageApi, contextHolder] = message.useMessage();
+  const [isStarFilled, setIsStarFilled] = useState<Record<number, boolean>>(() => {
+    const storedStarData = localStorage.getItem("starData");
+    return storedStarData ? JSON.parse(storedStarData) : {};
+  });
 
   const [totalTask, setTotalTask] = useState<number>(
     Number(localStorage.getItem("progress")) || 0
@@ -93,13 +98,21 @@ export default function TaskManager() {
       )
     );
     setCompletedTask((prev) => prev - 1);
-    window.location.reload();
     messageApi.success("Task marked as incomplete!");
+    window.location.reload();
   };
 
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
   const progress =
     tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 0;
+
+  const handleStar = (id: number) => {
+    setIsStarFilled((prev) => {
+      const updatedState = { ...prev, [id]: !prev[id] };
+      localStorage.setItem("starData", JSON.stringify(updatedState));
+      return updatedState;
+    });
+  };
 
   return (
     <>
@@ -160,6 +173,16 @@ export default function TaskManager() {
                   ),
                 ]}
               >
+                <div
+                  onClick={() => handleStar(task.id)}
+                  className="text-lg mb-6 mr-3 hover:cursor-pointer hover:rotate-180 ease-in duration-500"
+                >
+                  {isStarFilled[task.id] ? (
+                    <StarFilled className="text-blue-500" />
+                  ) : (
+                    <StarOutlined className="text-blue-500" />
+                  )}
+                </div>
                 <List.Item.Meta
                   title={
                     <span
