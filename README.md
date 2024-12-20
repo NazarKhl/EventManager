@@ -1,3 +1,9 @@
+![image](https://github.com/user-attachments/assets/3c1611a8-86f6-4b69-aa99-adbdf8423b6d)
+![image](https://github.com/user-attachments/assets/a8405ecc-0a1d-476a-ab7f-8ca8cc8633ac)
+![image](https://github.com/user-attachments/assets/e4547e41-521b-4291-954f-c1917fc74f60)
+![image](https://github.com/user-attachments/assets/3b62c801-f65f-40e0-82c7-fb885048d890)
+![image](https://github.com/user-attachments/assets/e335b1b7-2b5b-47f0-bb20-0fef0c71adae)
+
 # Event Manager  
 
 Event Manager is a dynamic web application designed to simplify the process of event creation, management, and tracking. With features like progress monitoring, user interactions, and seamless customization, this project leverages modern technologies like **React**, **Next.js**, **TypeScript**, and **TailwindCSS** to deliver a responsive and user-friendly experience.  
