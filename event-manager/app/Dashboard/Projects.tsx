@@ -48,7 +48,7 @@ export default function Projects() {
     : projects.filter((proj: any) => proj.status === filterStatus);
 
   return (
-    <div className="absolute border bg-[#eeebeb] w-[870px] h-[640px] top-8 left-56 rounded-lg p-6 shadow-lg overflow-auto">
+    <div className="absolute border bg-[#eeebeb] w-[1130px] h-[853px] top-8 left-56 rounded-lg p-6 shadow-lg overflow-auto">
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Projects</h2>
 
       {/* Add New Project */}
@@ -101,7 +101,6 @@ export default function Projects() {
             >
               {editingProjectId === proj.id ? (
                 <>
-                  {/* Editing Fields */}
                   <input
                     type="text"
                     value={editedProject.title}

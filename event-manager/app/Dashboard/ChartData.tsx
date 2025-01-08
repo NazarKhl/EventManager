@@ -39,7 +39,6 @@ const ChartData: React.FC = () => {
         : 0;
     const remaining = Math.max(total - completed, 0);
 
-    // Перевірка, чи є дані
     if (completed === 0 && remaining === 0) {
       setIsDataAvailable(false);
     } else {
@@ -117,7 +116,7 @@ const ChartData: React.FC = () => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center">
-      <div className="absolute w-3/5 h-3/5 text-white text-center p-8 rounded-lg mt-72 mr-32">
+      <div className="absolute w-3/5 h-3/5 text-white text-center p-8 rounded-lg mt-72 mr-72">
         {isDataAvailable ? (
           <canvas className="" ref={chartCanvasRef}></canvas>
         ) : (
