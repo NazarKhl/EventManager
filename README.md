@@ -110,12 +110,6 @@ We welcome contributions from the community! Follow these steps to contribute:
 
 ---
 
-## License  
-
-This project is licensed under the **MIT License**. See the `LICENSE` file for more details.  
-
----
-
 ## Acknowledgements  
 
 - [TailwindCSS](https://tailwindcss.com/)  
