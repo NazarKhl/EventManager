@@ -6,7 +6,7 @@
 
 # Event Manager  
 
-Event Manager is a dynamic web application designed to simplify the process of event creation, management, and tracking. With features like progress monitoring, user interactions, and seamless customization, this project leverages modern technologies like **Angular**, **TypeScript**, and **TailwindCSS** to deliver a responsive and user-friendly experience.  
+Event Manager is a dynamic web application designed to simplify the process of event creation, management, and tracking. With features like progress monitoring, user interactions, and seamless customization, this project leverages modern technologies like **Next.js**, **TypeScript**, and **TailwindCSS** to deliver a responsive and user-friendly experience.  
 
 ---
 
@@ -49,7 +49,7 @@ Event Manager is a dynamic web application designed to simplify the process of e
 ## Technologies Used  
 
 - **Frontend**:  
-  - **Angular**: Framework for server-side rendering and static site generation.  
+  - **Next.js**: Framework for server-side rendering and static site generation.  
   - **TypeScript**: Ensures type safety and maintainability.  
   - **TailwindCSS**: Utility-first framework for modern, responsive design.  
 
