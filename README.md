@@ -6,7 +6,7 @@
 
 # Event Manager  
 
-Event Manager is a dynamic web application designed to simplify the process of event creation, management, and tracking. With features like progress monitoring, user interactions, and seamless customization, this project leverages modern technologies like **React**, **Next.js**, **TypeScript**, and **TailwindCSS** to deliver a responsive and user-friendly experience.  
+Event Manager is a dynamic web application designed to simplify the process of event creation, management, and tracking. With features like progress monitoring, user interactions, and seamless customization, this project leverages modern technologies like **Angular**, **TypeScript**, and **TailwindCSS** to deliver a responsive and user-friendly experience.  
 
 ---
 
@@ -49,13 +49,12 @@ Event Manager is a dynamic web application designed to simplify the process of e
 ## Technologies Used  
 
 - **Frontend**:  
-  - **React**: Component-based library for building UI.  
-  - **Next.js**: Framework for server-side rendering and static site generation.  
+  - **Angular**: Framework for server-side rendering and static site generation.  
   - **TypeScript**: Ensures type safety and maintainability.  
   - **TailwindCSS**: Utility-first framework for modern, responsive design.  
 
 - **Backend**:  
-  - **Python(Django)**: RESTful APIs for event and user management.  
+  - **Java**: RESTful APIs for event and user management.  
 
 - **Database**:  
   - **MongoDB**: For storing event and user data.  
@@ -86,17 +85,7 @@ Event Manager is a dynamic web application designed to simplify the process of e
 
 4. Open the application in your browser at `http://localhost:3000`.  
 
----
-
-## Environment Variables  
-
-Create a `.env.local` file in the root directory and add the following:  
-```env  
-NEXT_PUBLIC_API_URL=https://api.example.com  
-NEXT_PUBLIC_ANALYTICS_KEY=your-analytics-key  
-```  
-
-Replace the placeholders with your actual API URL and keys.  
+--- 
 
 ---
 
@@ -129,8 +118,6 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for m
 
 ## Acknowledgements  
 
-- [React](https://reactjs.org/)  
-- [Next.js](https://nextjs.org/)  
 - [TailwindCSS](https://tailwindcss.com/)  
 - [TypeScript](https://www.typescriptlang.org/)  
 - [Chart.js](https://www.chartjs.org/)  
